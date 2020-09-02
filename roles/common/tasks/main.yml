@@ -1,0 +1,22 @@
+---
+# tasks file for common
+- name: Update repository and Upgrade packages
+  apt:
+    update_cache: yes
+    pkg:
+    - zsh
+    - python-simplejson
+- name: Setup timezone to Asia/Jakarta
+  timezone:
+    name: Europe/Lisbon
+- name: Create a login user
+  user:
+    name: Mary
+    password: "{{ default_user_password | password_hash('sha512', 'A512') }}"
+    groups: # Empty by default, here we give it some groups
+    - sudo
+    state: present
+    shell: /usr/bin/zsh       
+    system: no         
+    createhome: yes  
+    home: /home/Mary

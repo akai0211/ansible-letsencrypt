@@ -1,0 +1,2 @@
+[server]
+server01 ansible_host=localhost ansible_connection=local letsencrypt_email=duythu.v1@gmail.com domain_name=test.findingnemo.xyz default_user_password=Abc123
